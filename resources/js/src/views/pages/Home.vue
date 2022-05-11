@@ -25,7 +25,7 @@
         </v-card-text>
 
         <form-layout-bdd-installation></form-layout-bdd-installation>
-
+        
         <!-- login form -->
       </v-card>
     </div>
@@ -54,12 +54,15 @@
 // eslint-disable-next-line object-curly-newline
 import { mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
-import FormLayoutBddInstallation from '../form-layouts/FormLayoutBddInstallation.vue'
+
+import FormLayoutBddInstallation from '../form-layouts/form-install/FormLayoutBddInstallation.vue'
+import FormLayoutAdminUser from '../form-layouts/form-install/FormLayoutAdminUser.vue'
 
 export default {
 
   components: {
     FormLayoutBddInstallation,
+    FormLayoutAdminUser,
   },
 
   setup() {
