@@ -1,23 +1,32 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+  <title>{{ config('app.name', 'TemporalCMS') }}</title>
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="{{ asset(mix('js/app.js')) }}" defer></script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but {{ config('app.name', 'TemporalCMS') }} doesn't work properly without JavaScript enabled.
+      Please enable it to continue.</strong>
+  </noscript>
+
+  <div id="app">
+  </div>
+</body>
+
+</html>

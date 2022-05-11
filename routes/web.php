@@ -13,10 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/posts/{post}', [App\Http\Controllers\PostController::class, 'single']);
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/{any?}', [App\Http\Controllers\DashboardController::class, 'index'])->where('any', '.*');
+
+Route::get('/', ['has' => 'CMSHomePage', 'uses' => 'HomeController@index']);
+
+Route::get('/{any}', [App\Http\Controllers\HomeController::class, 'index'])->where('any', '.*');
+
+
+Auth::routes();
+
