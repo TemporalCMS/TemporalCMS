@@ -1,6 +1,6 @@
 <template>
   <div class="auth-wrapper auth-v1">
-    <div class="auth-inner">
+    <div class="auth-inner" id="1">
       <v-card class="auth-card">
         <!-- logo -->
         <v-card-title class="d-flex align-center justify-center py-7">
@@ -25,6 +25,36 @@
         </v-card-text>
 
         <form-layout-bdd-installation></form-layout-bdd-installation>
+        
+        <!-- login form -->
+      </v-card>
+    </div>
+
+    <div class="auth-inner" style="display: none;" id="2">
+      <v-card class="auth-card">
+        <!-- logo -->
+        <v-card-title class="d-flex align-center justify-center py-7">
+          <router-link to="/" class="d-flex align-center">
+            <v-img
+              :src="require('@/assets/images/logos/logo.svg').default"
+              max-height="30px"
+              max-width="30px"
+              alt="logo"
+              contain
+              class="me-3"
+            ></v-img>
+
+            <h2 class="text-2xl font-weight-semibold">TemporalCMS</h2>
+          </router-link>
+        </v-card-title>
+
+        <!-- title -->
+        <v-card-text>
+          <p class="text-2xl font-weight-semibold text--primary mb-2">Bienvenue sur l'installation de TemporalCMS ! 👋🏻</p>
+          <p class="mb-2">Veuillez enregistrer un utilisateur</p>
+        </v-card-text>
+
+        <form-layout-admin-user></form-layout-admin-user>
         
         <!-- login form -->
       </v-card>

@@ -1,12 +1,13 @@
 <template>
   <v-app>
-    <vertical-nav-menu :is-drawer-open.sync="isDrawerOpen"></vertical-nav-menu>
+    <vertical-nav-menu :is-drawer-open.sync="isDrawerOpen" v-if="$route.name !== 'home'"></vertical-nav-menu>
 
     <v-app-bar
       app
       flat
       absolute
       color="transparent"
+      v-if="$route.name !== 'home'"
     >
       <div class="boxed-container w-full">
         <div class="d-flex align-center mx-6">
@@ -52,7 +53,7 @@
     </v-app-bar>
 
     <v-main>
-      <div class="app-content-container boxed-container pa-6">
+      <div class="app-content-container boxed-container pa-6" style="padding: 0; !important">
         <slot></slot>
       </div>
     </v-main>
@@ -99,6 +100,7 @@ export default {
     ThemeSwitcher,
     AppBarUserMenu,
   },
+
   setup() {
     const isDrawerOpen = ref(null)
 

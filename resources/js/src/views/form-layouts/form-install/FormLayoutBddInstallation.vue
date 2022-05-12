@@ -37,7 +37,7 @@
       placeholder="password"
     ></v-text-field>
 
-    <v-btn color="primary">
+    <v-btn color="primary" v-on:click="clicked()">
       Passez à l'étape 2
     </v-btn>
     <v-btn
@@ -56,6 +56,23 @@ import { mdiAccountOutline, mdiEmailOutline, mdiCellphone, mdiLockOutline } from
 import { ref } from '@vue/composition-api'
 
 export default {
+
+  data: {
+    host: '',
+    namedb: '',
+    username: '',
+    password: '',
+  },
+
+  methods: {
+    clicked() {
+      if (this.host && this.namedb && this.username && this.password ) {
+        document.getElementById('1').style.display = "none";
+        document.getElementById('2').style.display = "block";
+      }
+    },
+  },
+
   setup() {
     const host = ref('')
     const namedb = ref('')

@@ -6,13 +6,22 @@ use Illuminate\Http\Request;
 
 class InstallController extends Controller
 {
+
+
     public function home(Request $request)
     {
+        $method = $request->method();
+
 
     }
 
     public function step1(Request $request)
     {
+        $method = $request->method();
+
+        if ($request->isMethod('post')) {
+            
+        }
 
     }
 

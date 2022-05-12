@@ -1,44 +1,37 @@
 <template>
   <v-form>
     <v-text-field
-      v-model="host"
+      v-model="pseudo"
       :prepend-inner-icon="icons.mdiAccountOutline"
-      label="Host"
+      label="Pseudo"
       outlined
       dense
-      placeholder="Host"
+      placeholder="Pseudo"
     ></v-text-field>
 
     <v-text-field
-      v-model="namedb"
+      v-model="email"
       :prepend-inner-icon="icons.mdiEmailOutline"
-      label="Nom de la base de donnée"
+      label="Adresse mail"
       outlined
       dense
-      placeholder="Nom de la base de donnée"
-    ></v-text-field>
-
-    <v-text-field
-      v-model="username"
-      :prepend-inner-icon="icons.mdiCellphone"
-      label="Nom d'utilisateur"
-      outlined
-      dense
-      placeholder="Nom d'utilisateur"
+      type="email"
+      placeholder="Adresse mail"
     ></v-text-field>
 
     <v-text-field
       v-model="password"
       :prepend-inner-icon="icons.mdiLockOutline"
-      label="Password"
+      label="Mot de passe"
       outlined
       dense
       type="password"
-      placeholder="password"
+      placeholder="Mot de passe"
     ></v-text-field>
 
+
     <v-btn color="primary">
-      Passez à l'étape 2
+      Passez à l'étape 3
     </v-btn>
     <v-btn
       type="reset"
@@ -52,26 +45,23 @@
 
 <script>
 // eslint-disable-next-line object-curly-newline
-import { mdiAccountOutline, mdiEmailOutline, mdiCellphone, mdiLockOutline } from '@mdi/js'
+import { mdiAccountOutline, mdiEmailOutline, mdiLockOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
 
 export default {
   setup() {
-    const host = ref('')
-    const namedb = ref('')
-    const username = ref('')
+    const pseudo = ref('')
+    const email = ref('')
     const password = ref('')
 
     return {
-      host,
-      namedb,
-      username,
+      pseudo,
+      email,
       password,
       // icons
       icons: {
         mdiAccountOutline,
         mdiEmailOutline,
-        mdiCellphone,
         mdiLockOutline,
       },
     }
