@@ -31,7 +31,7 @@
 
 
     <v-btn color="primary">
-      Passez à l'étape 3
+      Passez à l'étape 4
     </v-btn>
     <v-btn
       type="reset"

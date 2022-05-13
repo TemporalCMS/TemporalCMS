@@ -38,7 +38,7 @@
     ></v-text-field>
 
     <v-btn color="primary" v-on:click="clicked()">
-      Passez à l'étape 2
+      Passez à l'étape 3
     </v-btn>
     <v-btn
       type="reset"
@@ -67,8 +67,8 @@ export default {
   methods: {
     clicked() {
       if (this.host && this.namedb && this.username && this.password ) {
-        document.getElementById('1').style.display = "none";
-        document.getElementById('2').style.display = "block";
+        document.getElementById('2').style.display = "none";
+        document.getElementById('3').style.display = "block";
       }
     },
   },
