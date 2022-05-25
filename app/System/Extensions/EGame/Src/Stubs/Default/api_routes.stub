@@ -1,0 +1,7 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::group(['prefix' => 'api/{ROUTE_MODYXE_NAME}', 'namespace' => 'API'], function() {
+
+});

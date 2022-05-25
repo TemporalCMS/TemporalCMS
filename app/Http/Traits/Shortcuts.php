@@ -2,21 +2,18 @@
 
 namespace App\Http\Traits;
 
-use App\Tools\TTFunctions;
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\View;
+use Illuminate\Foundation\Application;
 
 trait Shortcuts
 {
     /**
      * @param $class_name
      * @param string $path_class
-     * @return bool|\Illuminate\Foundation\Application|mixed
+     * @return bool|Application|mixed
      * @throws \Exception
      */
-    public function access($class_name, $path_class = "App\Http\Controllers", \Closure $closure = null)
+    public function access($class_name, string $path_class = "App\Http\Controllers", \Closure $closure = null)
     {
         $fusion = $path_class . "\\" . $class_name;
         if(empty($class_name) || empty($path_class))

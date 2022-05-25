@@ -1,0 +1,49 @@
+<?php
+
+namespace {NAMESPACE};
+
+use App\System\Extensions\EGame\Core\EGameServiceProvider as ServiceProvider;
+
+class GameServiceProvider extends ServiceProvider
+{
+
+    // Https://Docs.TrixCMS.Eu
+
+    protected $egameName = "{MODULE_NAME}";
+    protected $routeNamespace = "{ROUTE_NAMESPACE}";
+
+    protected $middleware = []; // Load simple middleware
+
+    protected $middlewareGroups = []; // Load middleware groups
+
+    protected $middlewarePriority = []; // Load priority middleware
+
+    protected $middlewareRoute = []; // Load route middleware
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     */
+    public function register()
+    {
+        $this->registerAllMiddlewares(); // Register all middlewares
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->loadRoutes(); // Load all routes from src/{routes.php}{api.php} files of this egame
+        $this->loadViews(); // Load all views from this egame
+        $this->loadMigrations(); // Load all migrations from this egame
+        $this->loadFactories(); // Load all factories from this egame
+        $this->loadTranslations(); // Load translations with "egame" namespace
+
+        $this->registerAdminNavbar(); // Register admin navbar
+    }
+}

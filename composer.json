@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
+        "geeky/query-cache-builder": "^1.1",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",
         "laracasts/utilities": "^3.2",
@@ -25,28 +26,25 @@
         "phpunit/phpunit": "^9.3.3"
     },
     "autoload": {
+        "files": [
+            "app/Http/helpers.php",
+            "app/Http/api_helpers.php"
+        ],
         "classmap": [
             "database/seeds",
             "database/factories"
         ],
         "psr-4": {
             "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
+            "Extensions\\": "Extensions/",
             "Database\\Seeders\\": "database/seeds/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
+    "autoload-dev": {},
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
-        ],
-        "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

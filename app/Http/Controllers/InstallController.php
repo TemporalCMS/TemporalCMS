@@ -11,23 +11,24 @@ class InstallController extends Controller
     public function home(Request $request)
     {
         $method = $request->method();
-
-
     }
 
     public function step1(Request $request)
     {
-        $method = $request->method();
+        {
+            $method = $request->method();
 
-        if ($request->isMethod('post')) {
-            
+            if ($request->license) {
+                return view('install');
+            }
+            return view('home');
         }
 
     }
 
     public function step1_valid(Request $request)
     {
-
+        
     }
 
     public function step2(Request $request)

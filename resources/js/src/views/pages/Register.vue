@@ -116,8 +116,36 @@
 // eslint-disable-next-line object-curly-newline
 import { mdiFacebook, mdiTwitter, mdiGithub, mdiGoogle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default {
+
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: '',
+    };
+  },
+
+  methods: {
+    register() {
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, this.email, this.password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+        });
+    }
+  },
+
+
   setup() {
     const isPasswordVisible = ref(false)
     const username = ref('')

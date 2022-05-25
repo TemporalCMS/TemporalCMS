@@ -1,0 +1,15 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+// Https://Docs.TrixCMS.Eu
+
+// Load simple routes
+Route::get('{ROUTE_MODYXE_NAME}', '{MODYXE_CLASS}Controller@index')->name("{MODYXE_NAME}");
+
+// ------
+
+// Load all admin routes
+Route::middleware(['permissions:admin|ACCESS__DASHBOARD__GAME_PERSONALIZATION'])->prefix('dashboard')->group(function () {
+    Route::get('{ROUTE_MODYXE_NAME}', '{MODYXE_CLASS}Controller@admin_index')->name("admin.{MODYXE_NAME}");
+});

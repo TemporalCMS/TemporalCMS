@@ -14,14 +14,14 @@
               class="me-3"
             ></v-img>
 
-            <h2 class="text-2xl font-weight-semibold">{{ config('app.name', 'TemporalCMS') }}</h2>
+            <h2 class="text-2xl font-weight-semibold">TemporalCMS</h2>
           </router-link>
         </v-card-title>
 
         <!-- title -->
         <v-card-text>
           <p class="text-2xl font-weight-semibold text--primary mb-2">Bienvenue sur le panel Admin ! 👋🏻</p>
-          <p class="mb-2">Veuillez vous connecter à votre compte et commencer l'aventure</p>
+          <p class="mb-2">Veuillez vous connecter à votre compte.</p>
         </v-card-text>
 
         <!-- login form -->
@@ -31,7 +31,7 @@
               v-model="email"
               outlined
               label="Email"
-              placeholder="john@example.com"
+              placeholder="john@temporalcms.com"
               hide-details
               class="mb-3"
             ></v-text-field>
@@ -41,7 +41,7 @@
               outlined
               :type="isPasswordVisible ? 'text' : 'password'"
               label="Password"
-              placeholder="············"
+              placeholder="********"
               :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
               hide-details
               @click:append="isPasswordVisible = !isPasswordVisible"
@@ -84,6 +84,7 @@
 // eslint-disable-next-line object-curly-newline
 import { mdiFacebook, mdiTwitter, mdiGithub, mdiGoogle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default {
 
@@ -100,24 +101,35 @@ export default {
   },
 
   methods: {
-    checkForm: function (e) {
-      this.errors = [];
-      if (!this.email) {
+    checkForm() {
+      if (!this.state.email) {
         this.errors.push('Email requis !');
       }
-      if (!this.password) {
+      if (!this.state.password) {
         this.errors.push('Mot de passe attendu !');
       }
       else {
         let formContents = jQuery("#loginform").serialize();
 
-        axios.post('/login', formContents).then(function(res, status, req) {
+        axios.post('/login', formContents).then(function(res) {
           alert(res.data.user);
         }, function() {
           console.log('failed');
         });
       }
       e.preventDefault();
+    },
+
+    connect() {
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, this.state.email, this.state.password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
     }
   },
 

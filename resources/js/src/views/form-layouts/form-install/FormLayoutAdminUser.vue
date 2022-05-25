@@ -49,6 +49,17 @@ import { mdiAccountOutline, mdiEmailOutline, mdiLockOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
 
 export default {
+
+
+  methods: {
+    clicked() {
+      if (this.pseudo && this.email && this.password) {
+        document.getElementById('3').style.display = "none";
+        document.getElementById('4').style.display = "block";
+      }
+    },
+  },
+
   setup() {
     const pseudo = ref('')
     const email = ref('')

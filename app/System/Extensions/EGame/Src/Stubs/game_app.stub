@@ -1,0 +1,11 @@
+<?php
+
+namespace {NAMESPACE};
+
+use App\System\Extensions\EGame\Application\GameApp;
+
+class Game extends GameApp {
+
+    // If you do not want to configure the CMS application environment, do not touch this class, leave it blank.
+
+}
