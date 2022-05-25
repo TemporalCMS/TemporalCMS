@@ -1,0 +1,11 @@
+<?php
+
+return [
+    "id" => "{EID}",
+    "version" => "1.0.0",
+    "slug" => "{SLUG}",
+    "author" => [
+        "{AUTHOR}",
+    ],
+    "core" => "{CORE}"
+];

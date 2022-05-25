@@ -1,0 +1,9 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+// Https://Docs.TrixCMS.Eu
+
+Route::group(['namespace' => 'Admin'], function() {
+    Route::get('{ROUTE_MODYXE_NAME}', ['as' => '{MODYXE_NAME}', 'uses' => '{MODYXE_CLASS}Controller@index']);
+});

@@ -14,14 +14,14 @@
               class="me-3"
             ></v-img>
 
-            <h2 class="text-2xl font-weight-semibold">TemporalCMS</h2>
+            <h2 class="text-2xl font-weight-semibold">{{ email }}</h2>
           </router-link>
         </v-card-title>
 
         <!-- title -->
         <v-card-text>
           <p class="text-2xl font-weight-semibold text--primary mb-2">Bienvenue sur l'installation de TemporalCMS ! 👋🏻</p>
-          <p class="mb-2">Veuillez renseigner lvotre license</p>
+          <p class="mb-2">Veuillez renseigner votre licence</p>
         </v-card-text>
 
         <form-layout-license-key></form-layout-license-key>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="icon" type="image/png" href="{{ site_config('favicon') }}">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <meta name="title" content="{{ website() }}">
+    <meta name="description" content="{{ site_config('description') }}">
+    <meta name="keywords" content="{{ site_config('keywords') }}">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="author" content="TrixCMS, Todyxe">
+
+    <meta name="og:title" content="{{ website() }}"/>
+    <meta name="og:type" content="game"/>
+    <meta name="og:url" content="{{ url()->current() }}"/>
+    <meta name="og:image" content="{{ site_config('favicon') }}"/>
+    <meta name="og:site_name" content="{{ website() }}"/>
+    <meta name="og:description" content="{{ site_config('description') }}"/>
+
+    <link rel="shortcut icon" type="image/png" href="{{ site_config('favicon') }}" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>{{ website() }} - {{ $title }}</title>
+</head>
+<body>
+
+@ThemeElement("header")
+
+@include($fetch_all)
+
+@ThemeElement("footer")
+
+@extends("Fetch.fetch")
+@include("Fetch.notification")
+
+@if(url()->current() == action('Auth\User\ProfileController@home'))
+    @include("Fetch.profile_2fa")
+@endif
+
+</body>
+</html>

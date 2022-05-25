@@ -11,7 +11,7 @@
 
     <v-text-field
       v-model="namedb"
-      :prepend-inner-icon="icons.mdiEmailOutline"
+      :prepend-inner-icon="icons.mdiDatabase"
       label="Nom de la base de donnée"
       outlined
       dense
@@ -20,7 +20,7 @@
 
     <v-text-field
       v-model="username"
-      :prepend-inner-icon="icons.mdiCellphone"
+      :prepend-inner-icon="icons.mdiDatabaseEditOutline"
       label="Nom d'utilisateur"
       outlined
       dense
@@ -29,7 +29,7 @@
 
     <v-text-field
       v-model="password"
-      :prepend-inner-icon="icons.mdiLockOutline"
+      :prepend-inner-icon="icons.mdiDatabaseLock"
       label="Password"
       outlined
       dense
@@ -52,7 +52,7 @@
 
 <script>
 // eslint-disable-next-line object-curly-newline
-import { mdiAccountOutline, mdiEmailOutline, mdiCellphone, mdiLockOutline } from '@mdi/js'
+import { mdiAccountOutline, mdiDatabase, mdiDatabaseEditOutline, mdiDatabaseLock } from '@mdi/js'
 import { ref } from '@vue/composition-api'
 
 export default {
@@ -87,9 +87,9 @@ export default {
       // icons
       icons: {
         mdiAccountOutline,
-        mdiEmailOutline,
-        mdiCellphone,
-        mdiLockOutline,
+        mdiDatabase,
+        mdiDatabaseEditOutline,
+        mdiDatabaseLock,
       },
     }
   },

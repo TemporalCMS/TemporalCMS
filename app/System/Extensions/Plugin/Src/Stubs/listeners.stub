@@ -1,0 +1,30 @@
+<?php
+
+namespace {NAMESPACE};
+
+use App\Http\Traits\App;
+
+class {CLASS_NAME}
+{
+    use App;
+
+    /**
+     * Create the event listener.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Handle the event.
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        //
+    }
+}

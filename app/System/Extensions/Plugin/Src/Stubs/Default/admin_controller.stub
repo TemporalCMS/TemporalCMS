@@ -1,0 +1,18 @@
+<?php
+
+namespace {NAMESPACE};
+
+use Illuminate\Http\Request;
+use App\System\Extensions\Plugin\Core\PluginController as {CONTROLLER_NAME};
+
+class {CLASS_NAME} extends {CONTROLLER_NAME}
+{
+    // Docs.TrixCMS.Eu
+
+    public $admin = true;
+
+    public function index()
+    {
+        return "Welcome to your module / Bienvenue !";
+    }
+}
